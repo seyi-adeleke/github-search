@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/styles.css" type="text/css" >
+    <title>GitHub Search</title>
+</head>
+<body>
+<header class="text-center">
+    <i class="fa fa-github fa-4x"></i>
+    <h1 id="title">GitHub Search</h1>
+    <div id="form-header">
+    <label for="langChoice">Language:</label>
+        <select name="langChoice" id="langChoice">
+            <option>All</option>
+            <option>JavaScript</option>
+            <option>C</option>
+            <option>CSS</option>
+            <option>PHP</option>
+            <option>C#</option>
+            <option>Haskell</option>
+            <option>Python</option>
+            <option>Java</option>
+            <option>Ruby</option>
+        </select>
+    </div>
+</header>
+<section>
+    <div class="row">
+        <div class="input-group" id="searchbox">
+                <input id="searcher" type="text" class="form-control" placeholder="Search GitHub for...">
+            <span class="input-group-btn">
+                <button id="search-button" class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+          </span>
+            </div>
+    </div>
+    <div class="col-md-6 col-md-offset-3 text-center">
+        <div id="resultsList"></div>
+    </div>
+    <div class="col-md-6 col-md-offset-3 text-center">
+        <div id="errors"></div>
+    </div>
+</section>
+<script src="https://code.jquery.com/jquery-3.1.0.js" crossorigin="anonymous"></script>
+<script src="js/app.js" rel="script" type="text/javascript"></script>
+</body>
+</html>
