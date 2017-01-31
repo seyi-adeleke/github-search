@@ -71,6 +71,11 @@ $(document).ready(function(){
         var error = $("<div>"+"<h1>" +msg +"</h1>"+"</div>");
         errors.append(error);
     }
+    $("#searcher").keypress(function() {
+        if (event.which == 13) {
+            searchCallback();
+        }
+    });
 
     $('#search-button').click(searchCallback);
 
