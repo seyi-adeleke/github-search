@@ -4,9 +4,8 @@
 $(document).ready(function(){
     var resultsList = $("#resultsList");
     var errors = $("#errors");
-    $("#search-button").on("click",function(){
+    var searchCallback = function(){
         $(".fa-github").addClass("loader");
-
         var searchPhrase = $("#searcher").val();
         var langChoice = $("#langChoice").val();
         if(searchPhrase){
@@ -35,17 +34,17 @@ $(document).ready(function(){
                 $.each(results,function(i,items){
                     var newResult = $(
                         "<div  class='result'>"+
-                            "<div  class='result-text-left'>"+
-                                "<div class='title'><b>Project name: </b>"+ items.name+"</div>"+
-                                "<div><b>Description: </b>"+ items.description+"</div>"+
-                                "<div><b>Owner: </b>" + items.owner['login']+ "</div>"+
-                            "</div>"+
-                            "<div class='result-text-right'>"+
-                                 "<div><b> Language:</b> " + items.language +"</div>"+
-                                 "<div><b>Forks: </b>" + items.forks + "</div>" +
-                                 "<div><b>Stars: </b>"+ items.stargazers_count+"</div>"+
-                                 "<span>"+"<a target='_blank' href="+items.html_url+">"+ "Go To Repo" +"</a>"+"</span>"+
-                            "</div>"+
+                        "<div  class='result-text-left'>"+
+                        "<div class='title'><b>Project name: </b>"+ items.name+"</div>"+
+                        "<div><b>Description: </b>"+ items.description+"</div>"+
+                        "<div><b>Owner: </b>" + items.owner['login']+ "</div>"+
+                        "</div>"+
+                        "<div class='result-text-right'>"+
+                        "<div><b> Language:</b> " + items.language +"</div>"+
+                        "<div><b>Forks: </b>" + items.forks + "</div>" +
+                        "<div><b>Stars: </b>"+ items.stargazers_count+"</div>"+
+                        "<span>"+"<a target='_blank' href="+items.html_url+">"+ "Go To Repo" +"</a>"+"</span>"+
+                        "</div>"+
                         "</div>"
 
                     );
@@ -57,11 +56,14 @@ $(document).ready(function(){
 
 
         }
+
         else{
             $(".fa-github").removeClass("loader");
             displayError("You didn't input a search query");
         }
-    });
+
+    };
+
     function displayError(msg){
         errors.empty();
 
@@ -69,5 +71,7 @@ $(document).ready(function(){
         var error = $("<div>"+"<h1>" +msg +"</h1>"+"</div>");
         errors.append(error);
     }
+    $('#search-button').click(searchCallback);
+
 
 });
