@@ -7,9 +7,8 @@
 $(document).ready(function(){
     var resultsList = $("#resultsList");
     var errors = $("#errors");
-    $("#search-button").on("click",function(){
+    var searchCallback = function(){
         $(".fa-github").addClass("loader");
-
         var searchPhrase = $("#searcher").val();
         var langChoice = $("#langChoice").val();
         if(searchPhrase){
@@ -60,11 +59,14 @@ $(document).ready(function(){
 
 
         }
+
         else{
             $(".fa-github").removeClass("loader");
             displayError("You didn't input a search query");
         }
-    });
+
+    };
+
     function displayError(msg){
         errors.empty();
 
@@ -72,5 +74,7 @@ $(document).ready(function(){
         var error = $("<div>"+"<h1>" +msg +"</h1>"+"</div>");
         errors.append(error);
     }
+    $('#search-button').click(searchCallback);
+
 
 });
