@@ -1,9 +1,6 @@
 /**
  * Created by seyi adeleke on 12/1/2016.
  */
-/**
- * Created by seyi adeleke on 12/1/2016.
- */
 $(document).ready(function(){
     var resultsList = $("#resultsList");
     var errors = $("#errors");
@@ -74,6 +71,7 @@ $(document).ready(function(){
         var error = $("<div>"+"<h1>" +msg +"</h1>"+"</div>");
         errors.append(error);
     }
+
     $('#search-button').click(searchCallback);
 
 
